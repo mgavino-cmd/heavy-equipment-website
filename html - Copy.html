@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heavy Equipment Rental | Premium Construction Equipment</title>
+    <style>
+        /* Modern CSS Reset & Variables */
+        :root {
+            --primary: #FFB703; /* Construction Yellow */
+            --primary-dark: #FB8500;
+            --dark: #1A1A1A; /* Charcoal Black */
+            --light: #F8F9FA;
+            --grey: #6C757D;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--dark);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #E0E0E0;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        /* Equipment Fleet Section */
+        .fleet {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            color: var(--grey);
+            margin-bottom: 50px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .card-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: var(--grey);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .card-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-sm {
+            padding: 6px 15px;
+            font-size: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #999;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            border-top: 4px solid var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav ul li { margin: 0 15px; }
+            .hero h1 { font-size: 32px; }
+            .fleet { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        <h1>Heavy <span>Equipment</span> Rental</h1>
+        <p>Get premium access to top-tier excavators, mixers, backhoes, and heavy-duty commercial trucks for any job site.</p>
+        <a href="#fleet" class="btn">View Fleet</a>
+    </section>
+
+    <!-- Fleet Inventory Grid Section -->
+    <section class="fleet" id="fleet">
+        <h2 class="section-title">Our Premium Fleet</h2>
+        <p class="section-subtitle">Reliable, modern, and fully serviced machinery ready for production.</p>
+        
+        <div class="grid">
+            <!-- Item 1: Excavator (6 TON, 8 TON, 14 TON, 21 TON, 25 TON, with RUBBERTIRES) -->
+            <div class="card">
+                <img src="equipment.jpg" alt="Excavator" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Excavator (6 TON, 8 TON, 14 TON, 21 TON, 25 TON, with RUBBERTIRES</h3>
+                    <p class="card-text">High-performance digging and demolition capacity with advanced hydraulic systems.</p>
+                    <div class="card-price">
+                        <span>$350 / Per Hour</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Mixer Truck -->
+            <div class="card">
+                <img src="equipment.jpg" alt="Concrete Mixer" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Concrete Mixer Truck</h3>
+                    <p class="card-text">Heavy capacity rotational mixing drums ensuring perfectly consistent concrete delivery.</p>
+                    <div class="card-price">
+                        <span>$450 / Per Hour</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Backhoe -->
+            <div class="card">
+                <img src="equipment.jpg" alt="Backhoe" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Backhoe </h3>
+                    <p class="card-text">Versatile dual-purpose machinery perfect for trenching, backfilling, and material handling.</p>
+                    <div class="card-price">
+                        <span> $150 / Per Hour</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+             <!-- Item 4: FLATBED & LOWBOY-->
+            <div class="card">
+                <img src="equipment.jpg" alt="FLATBED & LOWBOY" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Flatbed & Lowboy</h3>
+                    <p class="card-text">Spacious and durable for transporting large and heavy loads across various terrains.</p>
+                    <div class="card-price">
+                        <span>Start $150 / Per Hour</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+             <!-- Item 5: DUMPTRUCK (6 WL, 10 WL, 18 WL) -->
+            <div class="card">
+                <img src="equipment.jpg" alt="DUMPTRUCK (6 WL, 10 WL, 18 WL)" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">DUMPTRUCK (6 WL, 10 WL, 18 WL)</h3>
+                    <p class="card-text">High-capacity dump truck for efficient material transport on construction sites.</p>
+                    <div class="card-price">
+                       <span>Start $150 / Per Hour</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+             <!-- Item 6: GRADER -->
+            <div class="card">
+                <img src="equipment.jpg" alt="GRADER" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">GRADER</h3>
+                    <p class="card-text">Precision grading and surface finishing capabilities for efficient site preparation.</p>
+                    <div class="card-price">
+                        <span>$180  / Per Hour</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<styimport os
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+
+def create_price_list_pdf(filename="Vailuu_Sons_Trucking_Price_List.pdf"):
+    # Setup Document Geometry (Letter size, clean margins)
+    doc = SimpleDocTemplate(
+        filename,
+        pagesize=letter,
+        rightMargin=36,
+        leftMargin=36,
+        topMargin=36,
+        bottomMargin=36
+    )
+    story = []
+    styles = getSampleStyleSheet()
+    
+    # Custom Typography Configurations
+    title_style = ParagraphStyle(
+        'DocTitle', fontName='Helvetica-Bold', fontSize=20, leading=24,
+        textColor=colors.HexColor('#1A365D'), alignment=TA_CENTER
+    )
+    subtitle_style = ParagraphStyle(
+        'DocSubtitle', fontName='Helvetica-Bold', fontSize=13, leading=16,
+        textColor=colors.HexColor('#4A5568'), alignment=TA_CENTER
+    )
+    danger_style = ParagraphStyle(
+        'DangerZone', fontName='Helvetica-Bold', fontSize=10, leading=14,
+        textColor=colors.white, alignment=TA_CENTER
+    )
+    
+    cell_bold_center = ParagraphStyle('CBC', fontName='Helvetica-Bold', fontSize=9, leading=11, alignment=TA_CENTER)
+    cell_bold_left = ParagraphStyle('CBL', fontName='Helvetica-Bold', fontSize=9, leading=11, alignment=TA_LEFT)
+    cell_normal = ParagraphStyle('CN', fontName='Helvetica', fontSize=8, leading=10, alignment=TA_LEFT)
+    cell_right = ParagraphStyle('CR', fontName='Helvetica', fontSize=8, leading=10, alignment=TA_RIGHT)
+
+    # Document Branding Headers
+    story.append(Paragraph("Vailuu & Sons Trucking", title_style))
+    story.append(Spacer(1, 4))
+    story.append(Paragraph("Price List — January 2025", subtitle_style))
+    story.append(Spacer(1, 12))
+    
+    # Main Multi-Column Regional Delivery Matrices Table
+    headers = [
+        Paragraph("Westside Village", cell_bold_left), Paragraph("7 cu yds", cell_bold_center), Paragraph("13 cu yds", cell_bold_center),
+        Paragraph("Central Village", cell_bold_left), Paragraph("7 cu yds", cell_bold_center), Paragraph("13 cu yds", cell_bold_center),
+        Paragraph("Eastside Village", cell_bold_left), Paragraph("7 cu yds", cell_bold_center), Paragraph("13 cu yds", cell_bold_center)
+    ]
+    
+    # Structural Row Mapping from your provided Data Grid
+    region_rows = [
+        ["Fagamalo", "$285.00", "NO DELIV.", "Vaitogi", "$130.00", "$200.00", "Gataivai Utulei", "$160.00", "$220.00"],
+        ["Fagalii", "$230.00", "$200.00", "Iliili", "$120.00", "$200.00", "Fagatogo Rd side", "$170.00", "$215.00"],
+        ["Poloa", "$225.00", "$200.00", "Cango Hill", "$130.00", "NO DELIV.", "Fagatogo Mt side", "$215.00", "NO DELIV."],
+        ["Amanave", "$175.00", "$260.00", "Pavaiai", "$115.00", "$195.00", "Pago Pago Rd side", "$180.00", "$245.00"],
+        ["Aqagulu", "$160.00", "$240.00", "Faleniu", "$120.00", "$200.00", "Pago Pago Mt side", "$195.00", "NO DELIV."],
+        ["Failolo", "$150.00", "$215.00", "Mesepa", "$120.00", "$200.00", "Satala", "$185.00", "$245.00"],
+        ["Nua & Seetaga", "$150.00", "$215.00", "Malaeimi", "$130.00", "$205.00", "Satala Steep Rd", "$195.00", "NO DELIV."],
+        ["Asili / Afao", "$140.00", "$210.00", "Tafuna", "$135.00", "$210.00", "Aua", "$195.00", "$255.00"]
+    ]
+    
+    main_table_data = [headers]
+    for row in region_rows:
+        main_table_data.append([Paragraph(cell, cell_normal if idx % 3 == 0 else cell_right) for idx, cell in enumerate(row)])
+        
+    main_table = Table(main_table_data, colWidths=[80, 45, 45, 80, 45, 45, 95, 45, 45])
+    main_table.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (2,0), colors.HexColor('#E2E8F0')), # Alternating Region Styling Headers
+        ('BACKGROUND', (3,0), (5,0), colors.HexColor('#EDF2F7')),
+        ('BACKGROUND', (6,0), (8,0), colors.HexColor('#E2E8F0')),
+        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#CBD5E0')),
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+    ]))
+    story.append(main_table)
+    story.append(Spacer(1, 12))
+    
+    # High-Visibility Operation Warning Alert Bar
+    danger_bar = Table([[Paragraph("⚠️ !!! DANGER ZONE !!! - REQUIRES APPROVAL FROM OPERATIONS MANAGER", danger_style)]], colWidths=[540])
+    danger_bar.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#C53030')), 
+        ('PADDING', (0,0), (-1,-1), 5),
+        ('ALIGN', (0,0), (-1,-1), 'CENTER')
+    ]))
+    story.append(danger_bar)
+    story.append(Spacer(1, 12))
+    
+    # Heavy Equipment, Fleet Logistics & Concrete Services Grid
+    bottom_headers = [
+        Paragraph("HEAVY EQUIPMENT RENTAL", cell_bold_left), Paragraph("RATE", cell_bold_center),
+        Paragraph("CONCRETE SERVICES", cell_bold_left), Paragraph("RATE", cell_bold_center),
+        Paragraph("EXCAVATION UNITS", cell_bold_left), Paragraph("RATE", cell_bold_center)
+    ]
+    
+    bottom_rows = [
+        ["6 WL DUMPTRUCK", "$150.00 / Hr", "If YOU provide cement", "$100.00 / yd", "EXCAVATOR 6 TON", "$150.00 / Hr"],
+        ["10 WL DUMPTRUCK", "$180.00 / Hr", "If WE provide cement", "$190.00 / yd", "EXCAVATOR 14 TON", "$210.00 / Hr"],
+        ["18 WL DUMPTRUCK", "$210.00 / Hr", "Basecourse Material", "$235.00 / yd", "CRANE FLT", "$200.00 / Hr"],
+    ]
+    
+    bottom_table_data = [bottom_headers]
+    for row in bottom_rows:
+        bottom_table_data.append([
+            Paragraph(row[0], cell_normal), Paragraph(row[1], cell_right),
+            Paragraph(row[2], cell_normal), Paragraph(row[3], cell_right),
+            Paragraph(row[4], cell_normal), Paragraph(row[5], cell_right)
+        ])
+        
+    bottom_table = Table(bottom_table_data, colWidths=[120, 60, 115, 65, 120, 60])
+    bottom_table.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (1,0), colors.HexColor('#EDF2F7')),
+        ('BACKGROUND', (2,0), (3,0), colors.HexColor('#FEFCBF')), 
+        ('BACKGROUND', (4,0), (5,0), colors.HexColor('#EDF2F7')),
+        ('GRID', (0,0), (-1,-1), 0.5, colors.HexColor('#CBD5E0')),
+        ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 4),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+    ]))
+    story.append(bottom_table)
+
+    # Compile and output vector PDF file safely
+    doc.build(story)
+    print(f"Success: '{filename}' generated cleanly.")
+
+if __name__ == "__main__":
+    create_price_list_pdf()
+
+
+    
+    </section>
+
+    <!-- Footer Area -->
+    <footer>
+        <p>&copy; 2026 HeavyRent International. All global infrastructure rights reserved.</p>
+    </footer>
+
+</body>
+</html>
