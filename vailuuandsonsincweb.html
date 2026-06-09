@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heavy Equipment Rental | Premium Construction Equipment</title>
+    
+    <!-- Vector PDF Document Generators -->
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+    
+    <style>
+        /* Base styles with full-bleed background picture styling */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            /* Background Picture Implementation */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                              url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Container that floats gracefully over the background image */
+        .app-container {
+            max-width: 1100px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.96); /* Slightly transparent white */
+            backdrop-filter: blur(8px); /* Modern frosted-glass effect */
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .header-banner {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .header-banner h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: -0.025em;
+        }
+
+        .header-banner p {
+            margin: 4px 0 0 0;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .export-btn {
+            background-color: #2563eb;
+            color: white;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+        }
+
+        .export-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .workspace-content {
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        /* Form Table styling fields */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            min-width: 800px;
+            background: white;
+        }
+
+        th {
+            background-color: #e2e8f0;
+            color: #334155;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+        }
+
+        td {
+            padding: 6px;
+            border: 1px solid #cbd5e1;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid transparent;
+            background: transparent;
+            padding: 4px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 13px;
+        }
+
+        input:focus {
+            outline: none;
+            background-color: #eff6ff;
+            border-color: #bfdbfe;
+        }
+
+        .right-align {
+            text-align: right;
+            color: #1d4ed8;
+            font-family: monospace;
+        }
+
+        .danger-ribbon {
+            background-color: #b91c1c;
+            color: white;
+            text-align: center;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Dashboard Header Control Strip -->
+        <div class="header-banner">
+            <div>
+                <h1>🚚 Vailuu & Sons Trucking</h1>
+                <p>Live Pricing Workspace & PDF Export Engine</p>
+            </div>
+            <button onclick="generatePDF()" class="export-btn">📄 Export Custom PDF</button>
+        </div>
+
+        <div class="workspace-content">
+            <!-- Region Grid -->
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 16%;">Westside Village</th>
+                        <th style="width: 8%;">7 cu yds</th>
+                        <th style="width: 8%;">13 cu yds</th>
+                        <th style="width: 16%; background-color: #f1f5f9;">Central Village</th>
+                        <th style="width: 8%; background-color: #f1f5f9;">7 cu yds</th>
+                        <th style="width: 8%; background-color: #f1f5f9;">13 cu yds</th>
+                        <th style="width: 18%;">Eastside Village</th>
+                        <th style="width: 8%;">7 cu yds</th>
+                        <th style="width: 8%;">13 cu yds</th>
+                    </tr>
+                </thead>
+                <tbody id="regionTableBody"></tbody>
+            </table>
+
+            <!-- Danger Zone Alert Row -->
+            <div class="danger-ribbon">
+                ⚠️ !!! DANGER ZONE !!! - REQUIRES APPROVAL FROM OPERATIONS MANAGER
+            </div>
+
+            <!-- Heavy Equipment Grid -->
+            <table>
+                <thead>
+                    <tr style="background-color: #f1f5f9;">
+                        <th style="width: 24%;">Heavy Equipment Rental</th>
+                        <th style="width: 10%;">Rate</th>
+                        <th style="width: 24%; background-color: #fef3c7;">Concrete Services</th>
+                        <th style="width: 10%; background-color: #fef3c7;">Rate</th>
+                        <th style="width: 22%;">Excavation Units</th>
+                        <th style="width: 10%;">Rate</th>
+                    </tr>
+                </thead>
+                <tbody id="bottomTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Active data store array links
+        const regionData = [
+            ["Fagamalo", "$285.00", "NO DELIV.", "Vaitogi", "$130.00", "$200.00", "Gataivai Utulei", "$160.00", "$220.00"],
+            ["Fagalii", "$230.00", "$200.00", "Iliili", "$120.00", "$200.00", "Fagatogo Rd side", "$170.00", "$215.00"],
+            ["Poloa", "$225.00", "$200.00", "Cango Hill", "$130.00", "NO DELIV.", "Fagatogo Mt side", "$215.00", "NO DELIV."],
+            ["Amanave", "$175.00", "$260.00", "Pavaiai", "$115.00", "$195.00", "Pago Pago Rd side", "$180.00", "$245.00"],
+            ["Aqagulu", "$160.00", "$240.00", "Faleniu", "$120.00", "$200.00", "Pago Pago Mt side", "$195.00", "NO DELIV."],
+            ["Failolo", "$150.00", "$215.00", "Mesepa", "$120.00", "$200.00", "Satala", "$185.00", "$245.00"],
+            ["Nua & Seetaga", "$150.00", "$215.00", "Malaeimi", "$130.00", "$205.00", "Satala Steep Rd", "$195.00", "NO DELIV."],
+            ["Asili / Afao", "$140.00", "$210.00", "Tafuna", "$135.00", "$210.00", "Aua", "$195.00", "$255.00"]
+        ];
+
+        const bottomData = [
+            ["6 WL DUMPTRUCK", "$150.00 / Hr", "If YOU provide cement", "$100.00 / yd", "EXCAVATOR 6 TON", "$150.00 / Hr"],
+            ["10 WL DUMPTRUCK", "$180.00 / Hr", "If WE provide cement", "$190.00 / yd", "EXCAVATOR 14 TON", "$210.00 / Hr"],
+            ["18 WL DUMPTRUCK", "$210.00 / Hr", "Basecourse Material", "$235.00 / yd", "CRANE FLT", "$200.00 / Hr"]
+        ];
+
+        function initWorkspace() {
+            const regionBody = document.getElementById('regionTableBody');
+            regionData.forEach((row, rIdx) => {
+                let tr = document.createElement('tr');
+                row.forEach((cell, cIdx) => {
+                    let td = document.createElement('td');
+                    let isLabel = (cIdx % 3 === 0);
+                    let input = document.createElement('input');
+                    input.type = "text";
+                    input.value = cell;
+                    if(!isLabel) input.className = "right-align";
+                    input.oninput = (e) => { regionData[rIdx][cIdx] = e.target.value; };
+                    td.appendChild(input);
+                    tr.appendChild(td);
+                });
+                regionBody.appendChild(tr);
+            });
+
+            const bottomBody = document.getElementById('bottomTableBody');
+            bottomData.forEach((row, rIdx) => {
+                let tr = document.createElement('tr');
+                row.forEach((cell, cIdx) => {
+                    let td = document.createElement('td');
+                    if (cIdx === 2 || cIdx === 3) td.style.backgroundColor = "#fffbeb";
+                    let isLabel = (cIdx % 2 === 0);
+                    let input = document.createElement('input');
+                    input.type = "text";
+                    input.value = cell;
+                    if(!isLabel) input.className = "right-align";
+                    input.oninput = (e) => { bottomData[rIdx][cIdx] = e.target.value; };
+                    td.appendChild(input);
+                    tr.appendChild(td);
+                });
+                bottomBody.appendChild(tr);
+            });
+        }
+
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'letter' });
+
+<html>
+    
+</html>
