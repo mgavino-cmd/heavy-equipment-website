@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heavy Equipment Rental | Premium Construction Equipment</title>
+    <style>
+        /* Modern CSS Reset & Variables */
+        :root {
+            --primary: #FFB703; /* Construction Yellow */
+            --primary-dark: #FB8500;
+            --dark: #1A1A1A; /* Charcoal Black */
+            --light: #F8F9FA;
+            --grey: #6C757D;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--dark);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #E0E0E0;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        /* Equipment Fleet Section */
+        .fleet {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            color: var(--grey);
+            margin-bottom: 50px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .card-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: var(--grey);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .card-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-sm {
+            padding: 6px 15px;
+            font-size: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #999;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            border-top: 4px solid var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav ul li { margin: 0 15px; }
+            .hero h1 { font-size: 32px; }
+            .fleet { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        <h1>Heavy <span>Equipment</span> Rental</h1>
+        <p>Get premium access to top-tier excavators, mixers, backhoes, and heavy-duty commercial trucks for any job site.</p>
+        <a href="#fleet" class="btn">View Fleet</a>
+    </section>
+
+    <!-- Fleet Inventory Grid Section -->
+    <section class="fleet" id="fleet">
+        <h2 class="section-title">Our Premium Fleet</h2>
+        <p class="section-subtitle">Reliable, modern, and fully serviced machinery ready for production.</p>
+        
+        <div class="grid">
+            <!-- Item 1: Excavator -->
+            <div class="card">
+                <img src="https://unsplash.com" alt="Excavator" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Crawler Excavator</h3>
+                    <p class="card-text">High-performance digging and demolition capacity with advanced hydraulic systems.</p>
+                    <div class="card-price">
+                        <span>$350 / Day</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Mixer Truck -->
+            <div class="card">
+                <img src="https://unsplash.com" alt="Concrete Mixer" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Concrete Mixer Truck</h3>
+                    <p class="card-text">Heavy capacity rotational mixing drums ensuring perfectly consistent concrete delivery.</p>
+                    <div class="card-price">
+                        <span>$450 / Day</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Backhoe -->
+            <div class="card">
+                <img src="https://unsplash.com" alt="Backhoe Loader" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Backhoe Loader</h3>
+                    <p class="card-text">Versatile dual-purpose machinery perfect for trenching, backfilling, and material handling.</p>
+                    <div class="card-price">
+                        <span>$290 / Day</span>
+                        <a href="#" class="btn btn-sm">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer>
+        <p>&copy; 2026 HeavyRent International. All global infrastructure rights reserved.</p>
+    </footer>
+
+</body>
+</html>
